@@ -42,6 +42,8 @@ export class UsersService {
 
   // Método para actualizar un usuario por su ID
   update(id: number, updateUserDto: UpdateUserDto) {
+    console.log(updateUserDto);
+    
     return `This action updates a #${id} user`;
   }
 

@@ -5,6 +5,8 @@ import { UsersModule } from './users/users.module';
 import { AuthModule } from './auth/auth.module';
 import { RolesModule } from './roles/roles.module';
 import { UsuariosModule } from './usuarios/usuarios.module';
+import * as dotenv from 'dotenv';
+dotenv.config();
 
 @Module({
   imports: [
@@ -13,18 +15,18 @@ import { UsuariosModule } from './usuarios/usuarios.module';
     }),
     TypeOrmModule.forRoot({
       type: 'postgres',
-      host: process.env.POSTGRES_HOST,
-      port: parseInt(process.env.POSTGRES_PORT, 10), 
-      username: process.env.POSTGRES_USER, 
-      password: process.env.POSTGRES_PASSWORD,
-      database: process.env.POSTGRES_DATABASE,
+      host: 'ep-jolly-wildflower-a4d8f4m7-pooler.us-east-1.aws.neon.tech',
+      port: 5432,
+      username: 'default',
+      password: '4IEJ3QZsumXY',
+      database: 'verceldb',
       autoLoadEntities: true,
       synchronize: true,
-      ssl: process.env.POSTGRES_SSL === 'true', 
+      ssl: false, // Assuming SSL is required
       extra: {
-        ssl: process.env.POSTGRES_SSL === 'true'
-          ? { rejectUnauthorized: false }
-          : null,
+        ssl: {
+          rejectUnauthorized: false,
+        },
       },
     }),
     UsersModule,
@@ -36,3 +38,5 @@ import { UsuariosModule } from './usuarios/usuarios.module';
   providers: [],
 })
 export class AppModule {}
+
+
