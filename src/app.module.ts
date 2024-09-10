@@ -3,10 +3,9 @@ import { ConfigModule } from '@nestjs/config';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { UsersModule } from './users/users.module';
 import { AuthModule } from './auth/auth.module';
-import { RolesModule } from './roles/roles.module';
 import { UsuariosModule } from './usuarios/usuarios.module';
-import * as dotenv from 'dotenv';
-dotenv.config();
+import { RolesModule } from './roles/roles.module';
+import { BranchesModule } from './branch/branch.module';
 
 @Module({
   imports: [
@@ -22,7 +21,7 @@ dotenv.config();
       database: 'verceldb',
       autoLoadEntities: true,
       synchronize: true,
-      ssl: false, // Assuming SSL is required
+      ssl: true, // Assuming SSL is required
       extra: {
         ssl: {
           rejectUnauthorized: false,
@@ -30,13 +29,12 @@ dotenv.config();
       },
     }),
     UsersModule,
-    RolesModule,
-    UsuariosModule,
     AuthModule,
+    UsuariosModule,
+    RolesModule,
+    BranchesModule
   ],
   controllers: [],
   providers: [],
 })
 export class AppModule {}
-
-
