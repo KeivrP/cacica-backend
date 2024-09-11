@@ -17,5 +17,9 @@ export class BranchesService {
     return this.branchesRepository.save(branch);
   }
 
+  async findAll(): Promise<Branch[]> {
+    return this.branchesRepository.find();
+  }
+
   // Métodos adicionales para encontrar, actualizar y eliminar sucursales
 }
