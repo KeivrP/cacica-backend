@@ -13,7 +13,7 @@ export class Usuarios {
   @Column({ type: 'text', nullable: false })
   email: string;
   
-  @Column({ type: 'text', nullable: false })
+  @Column({ type: 'text', default: 'vacio' })
   avatar_url: string;
 
   @Column({ type: 'boolean', nullable: false, default: true })
