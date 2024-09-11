@@ -18,7 +18,7 @@ export class UsuariosService {
   }
 
   async findAll(): Promise<Usuarios[]> {
-    return this.usuariosRepository.find();
+    return this.usuariosRepository.find({ relations: ['role', 'branch'] });
   }
 
   // Additional methods like findAll, findOne, update, delete can be added here
