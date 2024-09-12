@@ -33,6 +33,7 @@ export class UpdateUsuarioDto {
   email: string;
 
   @IsString()
+  @IsOptional()
   avatar_url?: string;
 
   @IsNotEmpty()
