@@ -6,6 +6,7 @@ import { AuthModule } from './auth/auth.module';
 import { UsuariosModule } from './usuarios/usuarios.module';
 import { RolesModule } from './roles/roles.module';
 import { BranchesModule } from './branch/branch.module';
+import { TargetModule } from './targets/targets.module';
 
 @Module({
   imports: [
@@ -32,7 +33,8 @@ import { BranchesModule } from './branch/branch.module';
     AuthModule,
     UsuariosModule,
     RolesModule,
-    BranchesModule
+    BranchesModule,
+    TargetModule
   ],
   controllers: [],
   providers: [],
