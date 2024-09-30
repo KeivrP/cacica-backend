@@ -10,5 +10,7 @@ import { Branch } from 'src/branch/entities/branch.entities';
   imports: [TypeOrmModule.forFeature([Usuarios, Role, Branch])],
   providers: [UsuariosService],
   controllers: [UsuariosController],
+  exports: [TypeOrmModule] // Asegúrate de exportar el TypeOrmModule
+
 })
 export class UsuariosModule {}

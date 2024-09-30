@@ -7,6 +7,9 @@ import { UsuariosModule } from './usuarios/usuarios.module';
 import { RolesModule } from './roles/roles.module';
 import { BranchesModule } from './branch/branch.module';
 import { TargetModule } from './targets/targets.module';
+import { ProjectsModule } from './projects/projects.module';
+import { ObjectivesProjectsModule } from './objectives_projects/objectives-projects.module';
+import { MonthlyTargetsModule } from './monthly_targets/monthly-targets.module';
 
 @Module({
   imports: [
@@ -34,7 +37,11 @@ import { TargetModule } from './targets/targets.module';
     UsuariosModule,
     RolesModule,
     BranchesModule,
-    TargetModule
+    TargetModule,
+    ProjectsModule,
+    ObjectivesProjectsModule,
+    MonthlyTargetsModule
+
   ],
   controllers: [],
   providers: [],

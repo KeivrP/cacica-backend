@@ -1,6 +1,7 @@
 import { Branch } from 'src/branch/entities/branch.entities';
+import { MonthlyTargets } from 'src/monthly_targets/entities/monthly-targets.entity';
 import { Role } from 'src/roles/entities/roles.entities';
-import { Entity, PrimaryGeneratedColumn, Column, ManyToOne, JoinColumn } from 'typeorm';
+import { Entity, PrimaryGeneratedColumn, Column, ManyToOne, JoinColumn, OneToMany } from 'typeorm';
 
 @Entity('users')
 export class Usuarios {
@@ -26,6 +27,9 @@ export class Usuarios {
   @ManyToOne(() => Branch, (branch) => branch.id)
   @JoinColumn({ name: 'branchId' })
   branch: Branch;
+
+  @OneToMany(() => MonthlyTargets, object => object.users)
+  monthlyTargets: MonthlyTargets;
  
   @Column({ type: 'number', nullable: false })
   roleId: number;
