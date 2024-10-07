@@ -32,4 +32,7 @@ export class Project {
 
     @Column({ nullable: true })
     branch_id: number;
+
+    @Column({ type: 'boolean', default: true })
+    is_active: boolean;
 }
