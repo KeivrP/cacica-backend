@@ -18,6 +18,6 @@ export class ObjectivesProjectsService {
     }
 
     async findAll(): Promise<ObjectivesProjects[]> {
-        return this.objectivesProjectsRepository.find({ relations: ['objective', 'project'] });
+        return this.objectivesProjectsRepository.find({ relations: ['target', 'project'] });
     }
 }
