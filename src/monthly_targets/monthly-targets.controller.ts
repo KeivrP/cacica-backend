@@ -1,5 +1,5 @@
 // src/monthly_targets/monthly-targets.controller.ts
-import { Controller, Post, Body, Get } from '@nestjs/common';
+import { Controller, Post, Body, Get, Put } from '@nestjs/common';
 import { MonthlyTargetsService } from './monthly-targets.service';
 import { CreateMonthlyTargetsDto } from './dto/create-monthly-targets.dto';
 import { MonthlyTargets } from './entities/monthly-targets.entity';
@@ -17,13 +17,15 @@ export class MonthlyTargetsController {
     async findAll(): Promise<MonthlyTargets[]> {
         return this.monthlyTargetsService.findAll();
     }
-    @Get(':id')
-    async findOne(id: number): Promise<MonthlyTargets> {
-        return this.monthlyTargetsService.findOne(id);
+    @Put('update-target-reportado')
+    async updateTargetReportado(@Body() body: { id: number, targetReportado: number }): Promise<MonthlyTargets> {
+        const { id, targetReportado } = body;
+        return this.monthlyTargetsService.updateTargetReportado(id, targetReportado);
     }
 
-    @Get('project/:projectId')
-    async findByProjectId(projectId: number): Promise<MonthlyTargets[]> {
-        return this.monthlyTargetsService.findByProjectId(projectId);
+    @Put('close-monthly-targets')
+    async closedMonthlyTargets(@Body() body: { projectId: number, month: string }): Promise<MonthlyTargets[]> {
+        const { projectId, month } = body;
+        return this.monthlyTargetsService.closedMonthlyTargets(projectId, month);
     }
 }

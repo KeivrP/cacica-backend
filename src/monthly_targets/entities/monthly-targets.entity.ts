@@ -18,6 +18,9 @@ export class MonthlyTargets {
     @Column()
     month: string;
 
+    @Column()
+    is_closed: boolean;
+
     @Column({ type: 'numeric', nullable: true })
     target_planificado: number;
 

@@ -1,5 +1,5 @@
 // src/monthly_targets/dto/create-monthly-targets.dto.ts
-import { IsNotEmpty, IsOptional, IsNumber, IsString } from "class-validator";
+import { IsNotEmpty, IsOptional, IsNumber, IsString, IsBoolean,  } from "class-validator";
 import { PrimaryGeneratedColumn } from "typeorm";
 
 export class CreateMonthlyTargetsDto {
@@ -31,4 +31,8 @@ export class CreateMonthlyTargetsDto {
 
   @IsOptional()
   project_id: number;
+
+  @IsBoolean()
+  is_closed: boolean = false;
+
 }

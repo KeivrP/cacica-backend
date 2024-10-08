@@ -42,9 +42,7 @@ export class ProjectsService {
       createProjectDto.branch_id
     );
 
-    for (const objectiveData of createProjectDto.objectives) {
-      console.log("Objective:", objectiveData);
-      const objective = await this.targetsRepository.findOneBy({
+    for (const objectiveData of createProjectDto.objectives) {      const objective = await this.targetsRepository.findOneBy({
         id: objectiveData.id,
       });
       if (objective) {
@@ -91,12 +89,6 @@ export class ProjectsService {
             if (userIndex < extraTargets) {
               userTargets[userIndex][monthIndex] += 1; // Asignar metas adicionales
             }
-            console.log(
-              "User:",
-              userIds[userIndex],
-              "Target:",
-              userTargets[userIndex][monthIndex]
-            );
           }
 
           for (let userIndex = 0; userIndex < totalUsers; userIndex++) {
