@@ -18,7 +18,7 @@ export class MonthlyTargets {
     @Column()
     month: string;
 
-    @Column()
+    @Column({ default: false }) // Set default value to false
     is_closed: boolean;
 
     @Column({ type: 'numeric', nullable: true })

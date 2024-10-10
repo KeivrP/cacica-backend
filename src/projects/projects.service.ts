@@ -100,6 +100,7 @@ export class ProjectsService {
                 month: months[monthIndex],
                 target_planificado: userTargets[userIndex][monthIndex], // Asignar la meta calculada para cada usuario
                 project_id: savedProject.id,
+                is_closed: false, // Por defecto, no se ha cerrado
               });
               await this.monthlyTargetsRepository.save(monthlyTarget);
             }
